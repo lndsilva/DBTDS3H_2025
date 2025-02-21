@@ -1,10 +1,13 @@
 -- apagando banco de dados se existir
 drop database dbpadaria;
 -- criando banco de dados 
+
 create database dbpadaria;
 -- acessar o banco de dados
+
 use dbpadaria;
 --criando as tabelas no banco de dados
+
 create table tbClientes(
 codCli int not null auto_increment,
 nome varchar(100) not null,
@@ -66,7 +69,6 @@ foreign key(codcli)references tbClientes(codcli));
 -- visualizando as tabelas
 show tables;
 -- visualizando a estrutura das tabelas
-desc tbGenero;
 desc tbUsuarios;
 desc tbFornecedores;
 desc tbFuncionarios;
@@ -95,8 +97,20 @@ salario,sexo)
 	values('Jeferson da Cunha Macedo',
 		'jeferson.cmacedo@gmail.com',
 		'98523-9685','1985-02-24',1500.35,'M');
+insert into tbFuncionarios(nome,email,telCel,dataNasc,
+salario,sexo)
+	values('Melina Dias',
+		'melina.dias@gmail.com',
+		'98741-8524','1992-05-12',3530.00,'F');
+
+insert into tbUsuarios(nome,senha,codFunc)
+	values('melina.dias','123456',2);
+insert into tbUsuarios(nome,senha,codFunc)
+	values('jeferson.cmacedo','45287',1);
 
 -- visualizando os registros nas tabelas
 
 select * from tbClientes;
 select * from tbFornecedores;
+select * from tbFuncionarios;
+select * from tbUsuarios;
