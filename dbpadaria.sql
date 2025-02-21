@@ -11,6 +11,20 @@ codGen int not null auto_increment,
 nome varchar(100),
 primary key(codGen));
 
+create table tbClientes(
+codCli int not null auto_increment,
+nome varchar(100) not null,
+cpf char(14) not null unique,
+email varchar(100),
+primary key(codCli));
+
+create table tbFornecedores(
+codForn int not null auto_increment,
+nome varchar(100),
+email varchar(100),
+telCel char(10),
+primary key(codForn));
+
 create table tbFuncionarios(
 codFunc int not null auto_increment,
 nome varchar(100),
@@ -32,13 +46,6 @@ primary key(codUsu),
 foreign key(codFunc)references tbFuncionarios(codFunc)
 );
 
-create table tbFornecedores(
-codForn int not null auto_increment,
-nome varchar(100),
-email varchar(100),
-telCel char(10),
-primary key(codForn));
-
 create table tbProdutos(
 codProd int not null auto_increment,
 descricao varchar(100),
@@ -50,6 +57,20 @@ codForn int not null,
 primary key(codProd),
 foreign key(codForn)references tbFornecedores(codForn));
 
+create table tbVendas(
+codVend int not null auto_increment,
+dataVend date,
+horaVend time,
+quantidade decimal(9,2) default 0 check(quantidade >=0),
+valor decimal(9,2) default 0 check(valor >=0),
+codProd int not null,
+codUsu int not null,
+codCli int not null,
+primary key(codVend),
+foreign key(codProd)references tbProdutos(codProd),
+foreign key(codUsu)references tbUsuarios(codUsu),
+foreign key(codcli)references tbClientes(codcli));
+
 -- visualizando as tabelas
 show tables;
 -- visualizando a estrutura das tabelas
@@ -57,3 +78,6 @@ desc tbGenero;
 desc tbUsuarios;
 desc tbFornecedores;
 desc tbFuncionarios;
+desc tbProdutos;
+desc tbClientes;
+desc tbVendas;
