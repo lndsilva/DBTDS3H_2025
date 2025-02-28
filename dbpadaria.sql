@@ -108,9 +108,35 @@ insert into tbUsuarios(nome,senha,codFunc)
 insert into tbUsuarios(nome,senha,codFunc)
 	values('jeferson.cmacedo','45287',1);
 
+insert into tbProdutos(descricao,quantidade,preco,
+	dataVal,lote,codForn)
+	values('Bolo de laranja',2,3.50,'2025-03-06','A35897281B',1);
+insert into tbProdutos(descricao,quantidade,preco,
+	dataVal,lote,codForn)
+	values('Pao de forma',50,5.35,'2026-02-28','C45897281Z',2);
+insert into tbProdutos(descricao,quantidade,preco,
+	dataVal,lote,codForn)
+	values('Pizza de banana',10,50.00,'2026-03-28','ER5897281N',2);
+insert into tbProdutos(descricao,quantidade,preco,
+	dataVal,lote,codForn)
+	values('Sorverte de pistache',50,4.35,'2025-04-06','ADC9728VC',1);
+insert into tbProdutos(descricao,quantidade,preco,
+	dataVal,lote,codForn)
+	values('Cafe expresso',10,22.50,'2025-05-05','APOB972RFT',1);
+
+
+insert into tbVendas(dataVend,horaVend,quantidade,valor,codProd,codUsu,codcli)
+	values('2025-02-28','19:30:25',10,50.35,2,1,2);
+insert into tbVendas(dataVend,horaVend,quantidade,valor,codProd,codUsu,codcli)
+	values('2025-02-28','19:10:25',2,100.00,3,2,1);
+insert into tbVendas(dataVend,horaVend,quantidade,valor,codProd,codUsu,codcli)
+	values('2025-02-28','19:05:25',1,3.50,1,1,2);
+
 -- visualizando os registros nas tabelas
 
 select * from tbClientes;
 select * from tbFornecedores;
 select * from tbFuncionarios;
 select * from tbUsuarios;
+select * from tbProdutos;
+select * from tbVendas;
